@@ -3,10 +3,17 @@ import HomeIcon from '@mui/icons-material/Home'
 import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import Button from '@mui/material/Button'
 import { pink } from '@mui/material/colors'
+
+import Typography from '@mui/material/Typography'
+
 function App() {
   return (
     <>
       <div>Tienhg2001</div>
+
+      <Typography variant="body2" color="text.secondary">
+        Hello Text typo
+      </Typography>
       <Button variant="text">Text</Button>
       <Button variant="contained">Contained</Button>
       <Button variant="outlined">Outlined</Button>
