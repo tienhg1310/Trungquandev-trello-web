@@ -34,7 +34,7 @@ function Profiles() {
         >
           <Avatar
             alt="Tiendeptrai"
-            sx={{ width: 30, height: 30 }}
+            sx={{ width: 36, height: 36 }}
             src="https://scontent.fhan15-1.fna.fbcdn.net/v/t1.6435-9/120463031_1270691523283088_7067634687663855665_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7a1959&_nc_ohc=9vlEWiN-0pcAX9ojn1-&_nc_oc=AQnNWCYo9HvIXY8HxRRo0uUGTbPwkQtkjPnQPK6FlytMDeIlQ52U-iQAMbmPZ88FBiyIVO3aRxtot1xafM_dY1Qe&_nc_ht=scontent.fhan15-1.fna&_nc_e2o=f&oh=00_AfCYo_FXBCPsQ3r0fyo_cem2EHL6fdQjq6A6va5Ck4dSug&oe=6548F128"
           />
         </IconButton>

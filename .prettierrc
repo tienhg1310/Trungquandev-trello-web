@@ -2,6 +2,6 @@
   "singleQuote": true,
   "semi": false,
   "trailingComma": "none",
-  "singleAttributePerLine": false,
+  "singleAttributePerLine": true,
   "printWidth": 120
 }
