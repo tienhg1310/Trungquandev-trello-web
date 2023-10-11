@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField'
 import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 import { ReactComponent as TrelloIcon } from '~/assets/trello.svg'
-import ModeSelect from '~/components/ModeSelect'
+import ModeSelect from '~/components/ModeSelect/ModeSelect'
 import Profiles from './Menus/Profiles'
 import Recent from './Menus/Recent'
 import Starred from './Menus/Starred'
@@ -46,12 +46,7 @@ function AppBar() {
       >
         <AppsIcon sx={{ color: 'white' }} />
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <SvgIcon
-            component={TrelloIcon}
-            fontSize="small"
-            inheritViewBox
-            sx={{ color: 'white' }}
-          />
+          <SvgIcon component={TrelloIcon} fontSize="small" inheritViewBox sx={{ color: 'white' }} />
           <Typography
             variant="span"
             sx={{
@@ -69,11 +64,7 @@ function AppBar() {
           <Recent />
           <Starred />
           <Templates />
-          <Button
-            variant="outlined"
-            startIcon={<LibraryAddIcon />}
-            sx={{ color: 'white', border: 'none', '&:hover': { border: 'none' } }}
-          >
+          <Button variant="outlined" startIcon={<LibraryAddIcon />} sx={{ color: 'white', border: 'none', '&:hover': { border: 'none' } }}>
             Create
           </Button>
         </Box>
@@ -98,13 +89,7 @@ function AppBar() {
                 <SearchIcon sx={{ color: 'white' }} />
               </InputAdornment>
             ),
-            endAdornment: (
-              <CloseIcon
-                fontSize="small"
-                sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer' }}
-                onClick={() => setSearchValue('')}
-              />
-            )
+            endAdornment: <CloseIcon fontSize="small" sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer' }} onClick={() => setSearchValue('')} />
           }}
           sx={{
             display: {
@@ -125,11 +110,7 @@ function AppBar() {
         />
         <ModeSelect />
         <Tooltip title="Notification">
-          <Badge
-            color="warning"
-            variant="dot"
-            sx={{ cursor: 'pointer' }}
-          >
+          <Badge color="warning" variant="dot" sx={{ cursor: 'pointer' }}>
             <NotificationsNoneIcon sx={{ color: 'white' }} />
           </Badge>
         </Tooltip>
