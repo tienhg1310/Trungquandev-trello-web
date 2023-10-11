@@ -31,14 +31,12 @@ function BoardContent({ board }) {
   }, [board])
 
   const handleDragStart = (event) => {
-    console.log('handleDragStart', event)
     setActiveDragItemId(event?.active?.id)
     setActiveDragItemType(event?.active?.data?.current?.columnId ? ACTIVE_DRAG_ITEM_TYPE.CARD : ACTIVE_DRAG_ITEM_TYPE.COLUMN)
     setActiveDragItemData(event?.active?.data?.current)
   }
 
   const handleDragEnd = (event) => {
-    console.log(event)
     const { active, over } = event
 
     // kiem tra neu khong ton tai over
@@ -51,8 +49,11 @@ function BoardContent({ board }) {
       const newIndex = orderedColumns.findIndex((c) => c._id === over.id)
 
       const dndOrderedColumns = arrayMove(orderedColumns, oldIndex, newIndex)
-      // const dndOrderedColumnsIds = dndOrderedColumns.map((c) => c._id)
-      // console.log('dndOrderedColumnsIds', dndOrderedColumnsIds)
+      /*
+       *  doan nay dung de call api sau nay
+       *  const dndOrderedColumnsIds = dndOrderedColumns.map((c) => c._id)
+       *  console.log('dndOrderedColumnsIds', dndOrderedColumnsIds)
+       * */
 
       // cap nhật state ban đầu sau kéo thả
       setOrderedColumns(dndOrderedColumns)
