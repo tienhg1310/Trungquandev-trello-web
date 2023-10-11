@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import TrelloCard from './Card/Card'
 
 function ListCards({ cards }) {
-  console.log(cards)
+
   return (
     <Box
       sx={{
