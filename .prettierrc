@@ -3,6 +3,6 @@
   "semi": false,
   "useTabs": false,
   "trailingComma": "none",
-  "printWidth": 3000,
+  "printWidth": 120,
   "bracketSpacing": true
 }
