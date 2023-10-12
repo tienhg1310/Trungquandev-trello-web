@@ -15,12 +15,13 @@ import {
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import Box from '@mui/material/Box'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, isEmpty } from 'lodash'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { mapOrder } from '~/utils/sorts'
 import Column from './ListColumns/Column/Column'
 import TrelloCard from './ListColumns/Column/ListCards/Card/Card'
 import ListColumn from './ListColumns/ListColumn'
+import { generatePlaceHolderCard } from '~/utils/formatter'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
@@ -82,6 +83,11 @@ function BoardContent({ board }) {
       if (nextActiveColumn) {
         // xoa card khoi columns cu
         nextActiveColumn.cards = nextActiveColumn.cards.filter((card) => card._id !== activeDraggingCardId)
+
+        // them placeholder card neu la card cuoi cung
+        if (isEmpty(nextActiveColumn.cards)) {
+          nextActiveColumn.cards = [generatePlaceHolderCard(nextActiveColumn)]
+        }
         // cap nhat mang cardsOderIds o bang cu
         nextActiveColumn.cardsOderIds = nextActiveColumn.cards.map((card) => card._id)
       }
@@ -95,6 +101,10 @@ function BoardContent({ board }) {
         }
         // them card dang keo vao overClumn theo vi tri index moi
         nextOverColumn.cards = nextOverColumn.cards.toSpliced(newCardIndex, 0, rebuild_activeDraggingCardId)
+
+        // xoa placeholder neu no dang ton tai
+        nextOverColumn.cards = nextOverColumn.cards.filter((card) => !card.FE_PlaceholderCard)
+
         // cap nhat mang cardsOderIds o bang moi
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map((card) => card._id)
       }
@@ -111,12 +121,12 @@ function BoardContent({ board }) {
     )
     setActiveDragItemData(event?.active?.data?.current)
 
+    console.log(event?.active?.id)
     // neu keo card thuc hien set old column
     if (event?.active?.data?.current?.columnId) {
       setOldColumnWhenDraggingCard(findColumnByCardId(event?.active?.id))
     }
   }
-
   // trigger trong qua trinh keo
   const handleDragOver = (event) => {
     // khong lam gi them neu nhu keo column
@@ -156,7 +166,9 @@ function BoardContent({ board }) {
 
   // trigger ket thuc mot hanh dong keo
   const handleDragEnd = (event) => {
+    console.log(oldColumnWhenDraggingCard)
     const { active, over } = event
+
     // kiem tra neu khong ton tai over hoac active (khi keo ra khoi pham vi container) thi return luon tranh loi
     if (!active || !over) return
 
@@ -172,6 +184,7 @@ function BoardContent({ board }) {
       const activeColumn = findColumnByCardId(activeDraggingCardId)
       const overColumn = findColumnByCardId(overCardId)
 
+      console.log(overColumn)
       // neu khong ton tai 1 trong 2 column thi khong lam gi tranh loi
       if (!activeColumn || !overColumn) return
 

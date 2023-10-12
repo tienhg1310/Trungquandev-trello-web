@@ -28,8 +28,22 @@ function TrelloCard({ card }) {
     return !!card?.memberIds?.length || !!card?.attachments?.length || !!card?.attachments?.length
   }
   return (
-    <Card ref={setNodeRef} style={dndKitCardStyle} {...attributes} {...listeners} sx={{ cursor: 'pointer', boxShadow: '0 1px 1px rgba(0,0,0,0.2)', overflow: 'unset' }}>
+    <Card
+      ref={setNodeRef}
+      style={dndKitCardStyle}
+      {...attributes}
+      {...listeners}
+      sx={{
+        // display: card?.FE_PlaceholderCard ? 'none' : 'block',
+        cursor: 'pointer',
+        boxShadow: '0 1px 1px rgba(0,0,0,0.2)',
+        // overflow: 'unset',
+        overflow: card?.FE_PlaceholderCard ? 'hidden' : 'unset',
+        height: card?.FE_PlaceholderCard ? '0px' : 'unset'
+      }}
+    >
       {card?.cover && <CardMedia sx={{ height: 140 }} image={card?.cover} />}
+
       <CardContent sx={{ p: 1.5, '&:last-child': { p: 1.5 } }}>
         <Typography>{card?.title}</Typography>
       </CardContent>
