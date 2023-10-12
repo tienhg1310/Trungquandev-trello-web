@@ -1,26 +1,26 @@
 import {
   DndContext,
   DragOverlay,
-  closestCorners,
-  defaultDropAnimationSideEffects,
   MouseSensor,
   PointerSensor,
   TouchSensor,
-  useSensor,
-  useSensors,
+  closestCenter,
+  closestCorners,
+  defaultDropAnimationSideEffects,
+  getFirstCollision,
   pointerWithin,
   rectIntersection,
-  getFirstCollision,
-  closestCenter
+  useSensor,
+  useSensors
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import Box from '@mui/material/Box'
+import { cloneDeep } from 'lodash'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { mapOrder } from '~/utils/sorts'
-import ListColumn from './ListColumns/ListColumn'
 import Column from './ListColumns/Column/Column'
 import TrelloCard from './ListColumns/Column/ListCards/Card/Card'
-import { cloneDeep, over } from 'lodash'
+import ListColumn from './ListColumns/ListColumn'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
@@ -244,12 +244,15 @@ function BoardContent({ board }) {
         return closestCorners({ ...args })
       }
       const pointerIntersection = pointerWithin(args)
-      const intersections = !!pointerIntersection?.length ? pointerIntersection : rectIntersection(args)
-      let overId = getFirstCollision(intersections, 'id')
+      if (!pointerIntersection?.length) return
+
+      // const intersections = !!pointerIntersection?.length ? pointerIntersection : rectIntersection(args)
+
+      let overId = getFirstCollision(pointerIntersection, 'id')
       if (overId) {
         const checkColumn = orderedColumns.find((column) => column._id === overId)
         if (checkColumn) {
-          overId = closestCenter({
+          overId = closestCorners({
             ...args,
             droppableContainers: args.droppableContainers.filter((container) => {
               return container.id !== overId && checkColumn?.cardOrderIds?.includes(container.id)
