@@ -29,7 +29,7 @@ export const mockData = {
             title: 'Title of card 01',
             description: 'Markdown Syntax (sẽ ở khóa nâng cao nhé)',
             cover:
-              'https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/342363644_6306089476119111_2633743841400144382_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=52f669&_nc_ohc=o09pVsf8AI0AX8s4TzK&_nc_ht=scontent.fhan5-11.fna&_nc_e2o=f&oh=00_AfDgcPPdn_WGGcDVAkNzyHJ5qkoeQo230a5qtCc7AspPHg&oe=652A880B',
+              'https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-6/342363644_6306089476119111_2633743841400144382_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=u7ck6v4HgSAAX-DTgtG&_nc_ht=scontent.fhan15-2.fna&_nc_e2o=f&oh=00_AfAYrf-gkICviBun6EDhlooAqmRNjsLypqCZy0T8D7NyyQ&oe=6536658B',
             memberIds: ['test-user-id-01'],
             comments: ['test comment 01', 'test comment 02'],
             attachments: ['test attachment 01', 'test attachment 02', 'test attachment 03']
