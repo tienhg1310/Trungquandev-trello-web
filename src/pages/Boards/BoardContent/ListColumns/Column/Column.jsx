@@ -17,13 +17,16 @@ import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 import { useState } from 'react'
 import ListCards from './ListCards/ListCards'
-import { mapOrder } from '~/utils/sorts'
+import { mapOrder, mapOrder1 } from '~/utils/sorts'
 
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 
 function Column({ column }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: column._id, data: { ...column } })
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
 
   const dndKitColumnStyle = {
     // touchAction: 'none',
@@ -38,9 +41,10 @@ function Column({ column }) {
   const open = Boolean(anchorEl)
   const handleClick = (event) => setAnchorEl(event.currentTarget)
   const handleClose = () => setAnchorEl(null)
-
-  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
+  console.log(column?.cardOrderIds)
+  const orderedCards = mapOrder1(column?.cards, column?.cardOrderIds, '_id')
   // div đặt ở đây và {...listeners} ở thẻ bên trong
+  console.log(orderedCards)
   return (
     <div ref={setNodeRef} style={dndKitColumnStyle} {...attributes}>
       <Box
@@ -77,7 +81,14 @@ function Column({ column }) {
           </Typography>
           <Box>
             <Tooltip title="More option">
-              <ExpandMoreIcon id="basic-column-dropdown" aria-controls={open ? 'basic-menu-column-dropdown' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick} sx={{ color: 'text.primary', cursor: 'pointer' }} />
+              <ExpandMoreIcon
+                id="basic-column-dropdown"
+                aria-controls={open ? 'basic-menu-column-dropdown' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                sx={{ color: 'text.primary', cursor: 'pointer' }}
+              />
             </Tooltip>
             <Menu
               id="basic-menu-column-dropdown"

@@ -48,8 +48,12 @@ function BoardBar({ board }) {
           gap: 2
         }}
       >
-        <Chip icon={<SpaceDashboardIcon />} label={board?.title} clickable sx={MENU_STYLE} />
-        <Chip icon={<VpnLockIcon />} label={capitalizeFirstLetter(board?.type)} clickable sx={MENU_STYLE} />
+        <Tooltip title={board?.description}>
+          <Chip icon={<SpaceDashboardIcon />} label={board?.title} clickable sx={MENU_STYLE} />
+        </Tooltip>
+        <Tooltip title={board?.type}>
+          <Chip icon={<VpnLockIcon />} label={capitalizeFirstLetter(board?.type)} clickable sx={MENU_STYLE} />
+        </Tooltip>
         <Chip icon={<AddToDriveIcon />} label="Add to Google Drive" clickable sx={MENU_STYLE} />
         <Chip icon={<BoltIcon />} label="Automation" clickable sx={MENU_STYLE} />
         <Chip icon={<FilterListIcon />} label="Filters" clickable sx={MENU_STYLE} />
@@ -92,19 +96,34 @@ function BoardBar({ board }) {
           }}
         >
           <Tooltip title="Tienhg2001">
-            <Avatar alt="Tienhg2001" src="https://scontent.fhan15-1.fna.fbcdn.net/v/t1.6435-9/120463031_1270691523283088_7067634687663855665_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7a1959&_nc_ohc=9vlEWiN-0pcAX9ojn1-&_nc_oc=AQnNWCYo9HvIXY8HxRRo0uUGTbPwkQtkjPnQPK6FlytMDeIlQ52U-iQAMbmPZ88FBiyIVO3aRxtot1xafM_dY1Qe&_nc_ht=scontent.fhan15-1.fna&_nc_e2o=f&oh=00_AfCYo_FXBCPsQ3r0fyo_cem2EHL6fdQjq6A6va5Ck4dSug&oe=6548F128" />
+            <Avatar
+              alt="Tienhg2001"
+              src="https://scontent.fhan15-1.fna.fbcdn.net/v/t1.6435-9/120463031_1270691523283088_7067634687663855665_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7a1959&_nc_ohc=9vlEWiN-0pcAX9ojn1-&_nc_oc=AQnNWCYo9HvIXY8HxRRo0uUGTbPwkQtkjPnQPK6FlytMDeIlQ52U-iQAMbmPZ88FBiyIVO3aRxtot1xafM_dY1Qe&_nc_ht=scontent.fhan15-1.fna&_nc_e2o=f&oh=00_AfCYo_FXBCPsQ3r0fyo_cem2EHL6fdQjq6A6va5Ck4dSug&oe=6548F128"
+            />
           </Tooltip>
           <Tooltip title="Tienhg2001">
-            <Avatar alt="Tienhg2001" src="https://scontent.fhph1-1.fna.fbcdn.net/v/t1.6435-9/127199988_1534327923432311_6288909485846022495_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7a1959&_nc_ohc=HYNXqJfNnokAX90J8cz&_nc_ht=scontent.fhph1-1.fna&_nc_e2o=f&oh=00_AfDgGFjmaeOz10uuTmc7SLnUpgT8jOiUZWm43n5Evu6k7g&oe=654AABDD" />
+            <Avatar
+              alt="Tienhg2001"
+              src="https://scontent.fhph1-1.fna.fbcdn.net/v/t1.6435-9/127199988_1534327923432311_6288909485846022495_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7a1959&_nc_ohc=HYNXqJfNnokAX90J8cz&_nc_ht=scontent.fhph1-1.fna&_nc_e2o=f&oh=00_AfDgGFjmaeOz10uuTmc7SLnUpgT8jOiUZWm43n5Evu6k7g&oe=654AABDD"
+            />
           </Tooltip>
           <Tooltip title="Tienhg2001">
-            <Avatar alt="Tienhg2001" src="https://scontent.fhph1-3.fna.fbcdn.net/v/t1.6435-9/120611345_1480578482140589_774060342293929475_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7a1959&_nc_ohc=OVCPzplCGrwAX9tIckc&_nc_ht=scontent.fhph1-3.fna&_nc_e2o=f&oh=00_AfD4jnu4KyrhDXGh8AL5ers5VwCD-eQlBn3jWRFrbO6mrg&oe=654AD38E" />
+            <Avatar
+              alt="Tienhg2001"
+              src="https://scontent.fhph1-3.fna.fbcdn.net/v/t1.6435-9/120611345_1480578482140589_774060342293929475_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7a1959&_nc_ohc=OVCPzplCGrwAX9tIckc&_nc_ht=scontent.fhph1-3.fna&_nc_e2o=f&oh=00_AfD4jnu4KyrhDXGh8AL5ers5VwCD-eQlBn3jWRFrbO6mrg&oe=654AD38E"
+            />
           </Tooltip>
           <Tooltip title="Tienhg2001">
-            <Avatar alt="Tienhg2001" src="https://scontent.fhph2-1.fna.fbcdn.net/v/t1.6435-9/182465189_1440565249629047_6635660377241286394_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Q6VuClTJ_KQAX-RVWpQ&_nc_ht=scontent.fhph2-1.fna&_nc_e2o=f&oh=00_AfCBfGvsxOsrrZBqxp0cPdte2aNcozGmLYhObQwwr8uTJQ&oe=654AC6DE" />
+            <Avatar
+              alt="Tienhg2001"
+              src="https://scontent.fhph2-1.fna.fbcdn.net/v/t1.6435-9/182465189_1440565249629047_6635660377241286394_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Q6VuClTJ_KQAX-RVWpQ&_nc_ht=scontent.fhph2-1.fna&_nc_e2o=f&oh=00_AfCBfGvsxOsrrZBqxp0cPdte2aNcozGmLYhObQwwr8uTJQ&oe=654AC6DE"
+            />
           </Tooltip>
           <Tooltip title="Tienhg2001">
-            <Avatar alt="Tienhg2001" src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.6435-9/178482647_1437467649938807_5463060047402227308_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7a1959&_nc_ohc=-8eyLJ-GcFgAX9bqIG-&_nc_ht=scontent.fhph1-2.fna&_nc_e2o=f&oh=00_AfAwprBcCp52dr3HztsrNlXPYsyDv5bALYCcAK8X6ZDsjA&oe=654AC4A1" />
+            <Avatar
+              alt="Tienhg2001"
+              src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.6435-9/178482647_1437467649938807_5463060047402227308_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7a1959&_nc_ohc=-8eyLJ-GcFgAX9bqIG-&_nc_ht=scontent.fhph1-2.fna&_nc_e2o=f&oh=00_AfAwprBcCp52dr3HztsrNlXPYsyDv5bALYCcAK8X6ZDsjA&oe=654AC4A1"
+            />
           </Tooltip>
         </AvatarGroup>
       </Box>
